@@ -1,0 +1,30 @@
+{
+  "name": "react-gulp-es6-browserify-boilerplate",
+  "version": "1.0.0",
+  "description": "A simple boilerplate with React, Gulp, ES6, and Browserify.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrew Del Prete",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^3.1.1",
+    "babelify": "^6.0.2",
+    "browser-sync": "2.6.5",
+    "browserify": "^10.1.3",
+    "gulp": "3.8.11",
+    "gulp-autoprefixer": "2.1.0",
+    "gulp-babel": "5.1.0",
+    "gulp-concat": "2.5.2",
+    "gulp-eslint": "^0.11.1",
+    "gulp-minify-css": "1.0.0",
+    "gulp-plumber": "1.0.0",
+    "gulp-rename": "1.2.2",
+    "gulp-sass": "1.3.3",
+    "gulp-streamify": "0.0.5",
+    "gulp-uglify": "1.2.0",
+    "react": "^0.13.3",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}

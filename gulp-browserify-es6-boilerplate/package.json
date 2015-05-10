@@ -1,12 +1,12 @@
 {
-  "name": "gulp-es6-browserify-eslint-boilerplate",
+  "name": "gulp-es6-browserify-boilerplate",
   "version": "1.0.0",
-  "description": "A simple boilerplate with Gulp, ES6, Browserify, and Eslint.",
+  "description": "A simple boilerplate with Gulp, ES6, and Browserify.",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "gulp-es6-browserify-eslint-boilerplate",
+  "author": "Andrew Del Prete",
   "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^3.1.1",
