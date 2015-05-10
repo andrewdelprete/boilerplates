@@ -13,7 +13,7 @@ var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 var streamify = require('gulp-streamify');
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', ['build'], function() {
   browserSync({
     server: {
        baseDir: "./"
@@ -70,6 +70,7 @@ gulp.task('browserify', ['lint'], function () {
     .pipe(browserSync.reload({stream:true}))
 });
 
+gulp.task('build', ['styles', 'browserify']);
 
 gulp.task('default', ['browser-sync'], function(){
   gulp.watch("src/styles/**/*.scss", ['styles']);
