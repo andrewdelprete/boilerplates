@@ -19,7 +19,7 @@ var app = angular.module('app', [ 'app.myMod', 'ui.router' ]);
 
 /**
  * Our Routes
- * Here is an example of routes, multiple views, and the process using require() to include a template at run time.
+ * Example of routes, multiple views, attaching a controller, and requiring and hardcoding view templates.
  * The last route shows the template hardcoded instead.
  */
 app.config(($stateProvider) => {
@@ -27,7 +27,11 @@ app.config(($stateProvider) => {
         .state('index', {
             url: '/',
             views: {
-                'viewA': { template: require('./views/index.viewA.html') },
+                'viewA': { 
+                    template: require('./views/index.viewA.html'),
+                    // Attach a controller
+                    controller: "myMod.ctrl as ctrl"
+                },
                 'viewB': { template: require('./views/index.viewB.html') }
             }
         })
@@ -42,6 +46,7 @@ app.config(($stateProvider) => {
             url: '/route2',
             views: {
                 'viewA': { template: require('./views/route2.viewA.html') },
+                // Hard code view template.
                 'viewB': { template: '<h1>route2.viewB.html</h1>' }
             }
         });

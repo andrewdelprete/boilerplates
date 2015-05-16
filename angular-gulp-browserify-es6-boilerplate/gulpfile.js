@@ -77,6 +77,6 @@ gulp.task('build', ['styles', 'browserify']);
 
 gulp.task('default', ['browser-sync'], function(){
   gulp.watch("src/styles/**/*.scss", ['styles']);
-  gulp.watch(["src/angular/**/*.js"], ['browserify']);
+  gulp.watch(["src/angular/**/*.js", "src/angular/**/*.html"], ['browserify']);
   gulp.watch("*.html", ['bs-reload']);
 });
