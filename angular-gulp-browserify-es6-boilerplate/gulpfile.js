@@ -12,6 +12,7 @@ var browserify = require('browserify');
 var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 var streamify = require('gulp-streamify');
+var html = require('html-browserify');
 
 gulp.task('browser-sync', ['build'], function() {
   browserSync({
@@ -44,7 +45,7 @@ gulp.task('styles', function(){
 
 // Eslint
 gulp.task('lint', function() {
-  return gulp.src('src/scripts/**/*.js')
+  return gulp.src('src/angular/**/*.js')
     .pipe(eslint())
     .pipe(eslint.format());
 });
@@ -53,9 +54,10 @@ gulp.task('lint', function() {
 gulp.task('browserify', ['lint'], function () {
     return browserify({
         debug: true,
-        entries: ['src/scripts/app.js' ],
+        entries: ['src/angular/app.js' ],
         extensions: ['.js' ]
     })
+    .transform(html)
     .transform(babelify)
     .bundle()
     .pipe(source('app.js'))
@@ -66,7 +68,7 @@ gulp.task('browserify', ['lint'], function () {
     }}))
     .pipe(gulp.dest('dist/scripts/'))
     .pipe(rename({suffix: '.min'}))
-    .pipe(streamify(uglify()))
+    //.pipe(streamify(uglify()))
     .pipe(gulp.dest('dist/scripts/'))
     .pipe(browserSync.reload({stream:true}))
 });
@@ -75,6 +77,6 @@ gulp.task('build', ['styles', 'browserify']);
 
 gulp.task('default', ['browser-sync'], function(){
   gulp.watch("src/styles/**/*.scss", ['styles']);
-  gulp.watch(["src/scripts/**/*.js"], ['browserify']);
+  gulp.watch(["src/angular/**/*.js"], ['browserify']);
   gulp.watch("*.html", ['bs-reload']);
 });

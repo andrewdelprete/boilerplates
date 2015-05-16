@@ -9,9 +9,14 @@
     <link rel="stylesheet" href="dist/styles/screen.min.css">
 </head>
 <body>
-    <div ng-controller="myMod.ctrl as ctrl">
-        <h1>{{ ctrl.helloWorld }}</h1>
-    </div>
+    <!-- A way to navigate -->
+    <a ui-sref="index">Index</a>
+    <a ui-sref="route1">Route 1</a>
+    <a ui-sref="route2">Route 2</a>    
+    
+    <!-- Multiple Views -->
+    <div ui-view="viewA"></div>
+    <div ui-view="viewB"></div>
     <script src="dist/scripts/app.min.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 'use strict';
 
-import angular from 'angular';
+import 'angular';
 import { myModCtrl } from './controllers';
 
 var myMod = angular.module('app.myMod', [])
