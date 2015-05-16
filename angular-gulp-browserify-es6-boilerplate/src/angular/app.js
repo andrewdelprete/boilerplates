@@ -22,7 +22,9 @@ var app = angular.module('app', [ 'app.myMod', 'ui.router' ]);
  * Example of routes, multiple views, attaching a controller, and requiring and hardcoding view templates.
  * The last route shows the template hardcoded instead.
  */
-app.config(($stateProvider) => {
+app.config(($stateProvider, $urlRouterProvider) => {
+    $urlRouterProvider.otherwise('/');
+
     $stateProvider
         .state('index', {
             url: '/',
