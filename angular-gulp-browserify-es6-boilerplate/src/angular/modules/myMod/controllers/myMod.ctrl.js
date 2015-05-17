@@ -1,7 +1,8 @@
 'use strict';
 
-var ctrl = ['$rootScope', '$scope', function($rootScope, $scope) {
+// var ctrl = ['$rootScope', function($rootScope, $scope) {
+var ctrl = function() {
     this.helloWorld = 'Hello World';
-}];
+};
 
 export default ctrl;

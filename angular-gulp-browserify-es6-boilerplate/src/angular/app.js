@@ -29,10 +29,10 @@ app.config(($stateProvider, $urlRouterProvider) => {
         .state('index', {
             url: '/',
             views: {
-                'viewA': { 
+                'viewA': {
                     template: require('./views/index.viewA.html'),
                     // Attach a controller
-                    controller: "myMod.ctrl as ctrl"
+                    controller: 'myMod.ctrl as ctrl'
                 },
                 'viewB': { template: require('./views/index.viewB.html') }
             }
