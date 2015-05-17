@@ -2,6 +2,7 @@
 
 import 'angular';
 import { myModCtrl } from './controllers';
+import { myModWikipediaService } from './services';
 
 var myMod = angular.module('app.myMod', [])
     .config(() => {
@@ -14,7 +15,7 @@ myMod.controller('myMod.ctrl', myModCtrl);
 // Directives - Coming Soon
 // myMod.directive('', );
 
-// Services - Coming Soon
-// myMod.service('', );
+// Services
+myMod.service('myMod.wikipedia.service', myModWikipediaService);
 
 export default myMod;
