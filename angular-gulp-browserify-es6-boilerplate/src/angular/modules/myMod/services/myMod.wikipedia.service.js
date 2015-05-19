@@ -8,7 +8,7 @@ var service = function($http) {
      * @return { Promise }
      */
     this.search = (term) => {
-        return $http.jsonp('http://wikipedia.org/w/api.php?&search=' + term.toLowerCase() + '&action=opensearch&format=json&callback=JSON_CALLBACK');
+        return $http.jsonp('http://en.wikipedia.org/w/api.php?&search=' + term.toLowerCase() + '&action=opensearch&format=json&callback=JSON_CALLBACK');
     };
 };
 
