@@ -1,0 +1,19 @@
+
+<form name="form" ng-submit="ctrl.search()">
+    <input type="text" name="term" ng-model="ctrl.term" placeholder="Wikipedia Search" />
+    <input type="submit" value="Search" ng-disabled="ctrl.disableSubmit" />
+</form>
+
+<section class="results" ng-switch="ctrl.results && ctrl.results.length > 0">
+    <ul ng-switch-when="true">
+        <li ng-repeat="term in ctrl.results">
+            {{ term }}
+        </li>
+    </ul>
+    <div ng-switch-when="false">
+        <small>Nothing to see here, trying searching for a word that actually exists.</small>
+    </div>
+    <div ng-switch-default>
+        <small>Search a word.</small>
+    </div>
+</section>
