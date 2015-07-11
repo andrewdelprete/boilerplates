@@ -17,7 +17,7 @@ var html = require('html-browserify');
 gulp.task('browser-sync', ['build'], function() {
   browserSync({
     server: {
-       baseDir: "./"
+       baseDir: "./dist"
     }
   });
 });
@@ -73,10 +73,17 @@ gulp.task('browserify', ['lint'], function () {
     .pipe(browserSync.reload({stream:true}))
 });
 
-gulp.task('build', ['styles', 'browserify']);
+// Html
+gulp.task('html', function() {
+  return gulp.src('./index.html')
+      .pipe(gulp.dest('dist'))
+      .pipe(browserSync.reload({stream:true}));
+});
+
+gulp.task('build', ['styles', 'browserify', 'html']);
 
 gulp.task('default', ['browser-sync'], function(){
   gulp.watch("src/styles/**/*.scss", ['styles']);
   gulp.watch(["src/angular/**/*.js", "src/angular/**/*.html"], ['browserify']);
-  gulp.watch("*.html", ['bs-reload']);
+  gulp.watch("*.html", ['html']);
 });
