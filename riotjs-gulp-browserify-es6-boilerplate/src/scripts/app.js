@@ -3,4 +3,13 @@
 import Riot from 'riot';
 import '../tags/helloworld.tag';
 
-Riot.mount('helloworld');
+var params = {
+    people: [
+        { name: 'Peter' },
+        { name: 'James' },
+        { name: 'John' },
+        { name: 'Andrew' }
+    ]
+};
+
+Riot.mount('helloworld', params);

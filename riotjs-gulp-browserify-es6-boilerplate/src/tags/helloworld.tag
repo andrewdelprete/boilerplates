@@ -3,7 +3,8 @@
     <input id="addInput" onkeyup={ add } />
     <button id="subtractInput" onclick={ subtract }>Subtract</button>
     <div>Count: { count }</div>
-
+    <div each={ opts.people }>{ name }</div>
+    <div each={ item, i in list }>{ i }: { item }</div>
     <script type="es6">
         count = 0
 
@@ -23,7 +24,21 @@
             return text.substr(0, text.length-1)
         }
 
-        setInterval(add, 1000)
+        this.people = [
+            { name: 'Peter' },
+            { name: 'James' },
+            { name: 'John' },
+            { name: 'Andrew' }
+        ]
+
+        this.list = [
+            'Banana',
+            'Apple',
+            'Orange',
+            'Mango'
+        ]
+
+        // setInterval(add, 1000)
 
         title = `${ opts.title } World!`
     </script>
