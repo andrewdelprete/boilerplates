@@ -24,13 +24,6 @@
             return text.substr(0, text.length-1)
         }
 
-        this.people = [
-            { name: 'Peter' },
-            { name: 'James' },
-            { name: 'John' },
-            { name: 'Andrew' }
-        ]
-
         this.list = [
             'Banana',
             'Apple',

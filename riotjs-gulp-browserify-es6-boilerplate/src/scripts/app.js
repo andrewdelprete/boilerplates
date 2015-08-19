@@ -1,15 +1,15 @@
 'use strict';
 
 import Riot from 'riot';
-import '../tags/helloworld.tag';
+import '../tags/peoplelist.tag';
 
 var params = {
     people: [
-        { name: 'Peter' },
-        { name: 'James' },
-        { name: 'John' },
-        { name: 'Andrew' }
+        { name: 'Peter', age: 20 },
+        { name: 'James', age: 30 },
+        { name: 'John', age: 40 },
+        { name: 'Andrew', age: 50 }
     ]
 };
 
-Riot.mount('helloworld', params);
+Riot.mount('peoplelist', params);
