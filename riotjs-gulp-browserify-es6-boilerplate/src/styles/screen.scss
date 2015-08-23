@@ -1,11 +1,10 @@
 @import 'base/variables';
 @import 'base/normalize';
 
-// Import Components
-// @import 'components/header';
+.blue {
+    color: blue;
+}
 
-// Import Layouts
-// @import 'layouts/home';
-
-// Import Plugins
-// @import 'plugins/plugin';
+.red {
+    color: red;
+}

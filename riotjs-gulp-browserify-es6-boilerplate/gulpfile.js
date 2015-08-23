@@ -67,7 +67,7 @@ gulp.task('browserify', ['lint'], function () {
     }}))
     .pipe(gulp.dest('dist/scripts/'))
     .pipe(rename({suffix: '.min'}))
-    .pipe(streamify(uglify({ mangle: true })))
+    // .pipe(streamify(uglify({ mangle: true })))
     .pipe(gulp.dest('dist/scripts/'))
     .pipe(browserSync.reload({stream:true}))
 });

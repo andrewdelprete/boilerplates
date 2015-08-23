@@ -27,9 +27,17 @@
             let index = opts.people.indexOf(person)
             opts.people.splice(index, 1)
         }
+
+        this.oldFarts = (age) => {
+            return age >= 60
+        }
+
+        this.whipperSnappers = (age) => {
+            return age <= 20
+        }
     </script>
 </peoplelist>
 
 <person>
-    <h1><a href onclick={ parent.remove }>X</a> - { opts.data.name } - <small>{ opts.data.age }</small></h1>
+    <h1><a href onclick={ parent.remove }>X</a> - { opts.data.name } - <small class={ red: oldFarts(opts.data.age), blue: whipperSnappers(opts.data.age) }>{ opts.data.age }</small></h1>
 </person>
