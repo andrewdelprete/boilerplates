@@ -85,5 +85,6 @@ gulp.task('default', ['browser-sync'], function(){
   gulp.watch('src/styles/**/*.scss', ['styles']);
   gulp.watch('src/scripts/**/*.js', ['browserify']);
   gulp.watch('src/tags/**/*.tag', ['browserify']);
+  gulp.watch('src/mixins/**/*.js', ['browserify']);
   gulp.watch('*.html', ['html']);
 });

@@ -5,6 +5,8 @@
     <person each={ opts.people } data={ this }></person>
 
     <script type="es6">
+        this.mixin('peoplelistObservable');
+
         this.disabled = true
 
         this.edit = (e) => {
@@ -20,21 +22,45 @@
             this.nameInput.value = ''
             this.ageInput.value = ''
             this.disabled = true
+
+            this.trigger('setCountAction', _countArray());
         }
 
         this.remove = (e) => {
             let person = e.item
             let index = opts.people.indexOf(person)
             opts.people.splice(index, 1)
+
+            this.trigger('setCountAction', _countArray());
         }
 
-        this.oldFarts = (age) => {
-            return age >= 60
+        this.oldFarts = (value) => {
+            if (typeof value == 'object') {
+                return value.age >= 60
+            }
+
+            return value >= 60
         }
 
-        this.whipperSnappers = (age) => {
-            return age <= 20
+        this.whipperSnappers = (value) => {
+            if (typeof value == 'object') {
+                return value.age <= 20
+            }
+
+            return value <= 20
         }
+
+        _countArray = (e) => {
+            return [
+                { title: "Old Farts", count: opts.people.filter(this.oldFarts).length, class: 'red' },
+                { title: "Whippersnappers", count: opts.people.filter(this.whipperSnappers).length, class: 'blue' },
+                { title: "Total", count: opts.people.length }
+            ]
+        }
+
+        this.on('mount', () => {
+            this.trigger('setCountAction', _countArray());
+        })
     </script>
 </peoplelist>
 

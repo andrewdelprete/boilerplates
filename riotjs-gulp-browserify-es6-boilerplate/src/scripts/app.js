@@ -2,6 +2,8 @@
 
 import Riot from 'riot';
 import '../tags/peoplelist.tag';
+import '../tags/peoplecount.tag';
+import PeoplelistObservable from '../mixins/peoplelistObservable.js';
 
 var params = {
     people: [
@@ -13,4 +15,6 @@ var params = {
     ]
 };
 
+Riot.mixin('peoplelistObservable', new PeoplelistObservable() );
 Riot.mount('peoplelist', params);
+Riot.mount('peoplecount');
