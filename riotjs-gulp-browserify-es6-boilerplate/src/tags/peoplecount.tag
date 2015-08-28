@@ -6,7 +6,7 @@
 
         this.on('setCountStore', (count) => {
             this.countArray = count
-            this.update();
-        });
+            this.update()
+        })
     </script>
 </peoplecount>

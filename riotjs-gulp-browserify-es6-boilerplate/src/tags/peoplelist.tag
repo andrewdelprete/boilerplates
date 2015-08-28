@@ -34,33 +34,42 @@
             this.trigger('setCountAction', _countArray());
         }
 
-        this.oldFarts = (value) => {
-            if (typeof value == 'object') {
-                return value.age >= 60
-            }
-
-            return value >= 60
+        this.oldFarts = (age) => {
+            return age >= 60
         }
 
-        this.whipperSnappers = (value) => {
-            if (typeof value == 'object') {
-                return value.age <= 20
-            }
-
-            return value <= 20
+        this.whipperSnappers = (age) => {
+            return age <= 20
         }
 
         _countArray = (e) => {
             return [
-                { title: "Old Farts", count: opts.people.filter(this.oldFarts).length, class: 'red' },
-                { title: "Whippersnappers", count: opts.people.filter(this.whipperSnappers).length, class: 'blue' },
-                { title: "Total", count: opts.people.length }
+                {
+                    title: "Old Farts",
+                    count: opts.people
+                        .map((person) => person.age)
+                        .filter(this.oldFarts)
+                        .length,
+                        class: 'red'
+                },
+                {
+                    title: "Whippersnappers",
+                    count: opts.people
+                        .map((person) => person.age)
+                        .filter(this.whipperSnappers)
+                        .length,
+                        class: 'blue'
+                },
+                {
+                    title: "Total",
+                    count: opts.people.length
+                }
             ]
         }
 
         this.on('mount', () => {
-            this.trigger('setCountAction', _countArray());
-        })
+            this.trigger('setCountAction', _countArray())
+        });
     </script>
 </peoplelist>
 

@@ -15,6 +15,6 @@ var params = {
     ]
 };
 
-Riot.mixin('peoplelistObservable', new PeoplelistObservable() );
+Riot.mixin('peoplelistObservable', new PeoplelistObservable());
 Riot.mount('peoplelist', params);
 Riot.mount('peoplecount');
