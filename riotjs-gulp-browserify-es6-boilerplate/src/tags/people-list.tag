@@ -1,8 +1,8 @@
-<peoplelist>
+<people-list>
     <input type="text" id="nameInput" placeholder="Name" onkeyup={ edit }>
     <input type="text" id="ageInput" placeholder="Age" onkeyup={ edit }>
     <button type="button" name="button" disabled={ disabled } onclick={ add }>Add Person</button>
-    <person each={ opts.people } data={ this }></person>
+    <person each={ person, i in opts.people } data={ person } index={ i }></person>
 
     <script type="es6">
         this.mixin('peoplelistObservable');
@@ -27,7 +27,7 @@
         }
 
         this.remove = (e) => {
-            let person = e.item
+            let person = e.item.person
             let index = opts.people.indexOf(person)
             opts.people.splice(index, 1)
 
@@ -71,8 +71,8 @@
             this.trigger('setCountAction', _countArray())
         });
     </script>
-</peoplelist>
+</people-list>
 
 <person>
-    <h1><a href onclick={ parent.remove }>X</a> - { opts.data.name } - <small class={ red: oldFarts(opts.data.age), blue: whipperSnappers(opts.data.age) }>{ opts.data.age }</small></h1>
+    <h1><a href onclick={ parent.remove }>X</a> - <a href="#people/{ opts.index }/detail">{ opts.data.name }</a> - <small class={ red: oldFarts(opts.data.age), blue: whipperSnappers(opts.data.age) }>{ opts.data.age }</small></h1>
 </person>
