@@ -8,5 +8,5 @@
 
 
 *Note
-if you used Nodejs from offical Debian/Ubuntu repositories, Please make `nodejs-legacy` installed : 
+if you used Nodejs from offical Debian/Ubuntu repositories, Please install `nodejs-legacy`: 
 ```sudo apt-get update && sudo apt-get install npm nodejs nodejs-legacy```
