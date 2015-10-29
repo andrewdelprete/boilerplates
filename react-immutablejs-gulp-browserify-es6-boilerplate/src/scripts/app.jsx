@@ -1,9 +1,8 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Immutable from 'immutable';
 import { MyComponent } from './components';
 
 const data = Immutable.fromJS({ title: "My Component" });
 
-React.render(<MyComponent data={ data } />, document.getElementById('app'));
-
-
+ReactDOM.render(<MyComponent data={ data } />, document.getElementById('app'));
