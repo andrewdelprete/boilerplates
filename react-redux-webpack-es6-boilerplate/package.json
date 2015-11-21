@@ -7,7 +7,7 @@
     "dev-server": "webpack-dev-server --hot --inline --colors",
     "build": "webpack --config webpack.dev.production.config && cp index.html dist/"
   },
-  "author": "",
+  "author": "Andrew Del Prete",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.0.3",
