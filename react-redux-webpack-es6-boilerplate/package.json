@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev-server": "webpack-dev-server --hot --inline --colors",
-    "build": "webpack --config webpack.dev.production.config && cp index.html dist/"
+    "build-dev": "webpack --config webpack.production.config && cp index.html dist/",
+    "build": "NODE_ENV=production webpack --config webpack.production.config && cp index.html dist/"
   },
   "author": "Andrew Del Prete",
   "license": "ISC",

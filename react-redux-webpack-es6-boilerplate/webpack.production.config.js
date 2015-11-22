@@ -4,7 +4,14 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     entry: {
-        app: './js/index.js'
+        app: () => {
+            // if NODE_ENV is production than use a different entry file.
+            if (process.env.NODE_ENV == 'production') {
+                return './js/index.production.js'
+            }
+
+            return './js/index.js'
+        }()
     },
     output: {
         path: __dirname + '/dist',
@@ -14,12 +21,6 @@ module.exports = {
     devtool: 'source-map',
     plugins: [
         new ExtractTextPlugin('style', 'css/[name].min.css'),
-        new webpack.DefinePlugin({
-            'process.env': {
-                // This has effect on the react lib size
-                'NODE_ENV': JSON.stringify('production')
-            }
-        }),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
