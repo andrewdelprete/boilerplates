@@ -2,16 +2,13 @@ const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
+var devFlagPlugin = new webpack.DefinePlugin({
+    __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
+});
+
 module.exports = {
     entry: {
-        app: () => {
-            // if NODE_ENV is production than use a different entry file.
-            if (process.env.NODE_ENV == 'production') {
-                return './js/index.production.js'
-            }
-
-            return './js/index.js'
-        }()
+        app: './js/index.js'
     },
     output: {
         path: __dirname + '/dist',
@@ -26,7 +23,8 @@ module.exports = {
             compress: {
                 warnings: false
             }
-        })
+        }),
+        devFlagPlugin
     ],
     module: {
         loaders: [

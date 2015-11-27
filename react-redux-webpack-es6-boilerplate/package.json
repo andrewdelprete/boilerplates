@@ -4,9 +4,9 @@
   "description": "React Redux Webpack ES6 Boilerplate",
   "main": "index.js",
   "scripts": {
-    "dev-server": "webpack-dev-server --hot --inline --colors",
-    "build-dev": "webpack --config webpack.production.config && cp index.html dist/",
-    "build": "NODE_ENV=production webpack --config webpack.production.config && cp index.html dist/"
+    "dev-server": "DEBUG=true webpack-dev-server --hot --inline --colors",
+    "dev-build": "DEBUG=true webpack --config webpack.build.config && cp index.html dist/",
+    "build": "webpack --config webpack.build.config && cp index.html dist/"
   },
   "author": "Andrew Del Prete",
   "license": "ISC",
