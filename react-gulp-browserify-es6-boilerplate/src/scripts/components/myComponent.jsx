@@ -1,10 +1,6 @@
 import React from 'react';
 
 class MyComponent extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div>
@@ -14,5 +10,8 @@ class MyComponent extends React.Component {
     }
 }
 
+MyComponent.propTypes = {
+    title: React.PropTypes.string
+}
 
-export default MyComponent;
+export default MyComponent

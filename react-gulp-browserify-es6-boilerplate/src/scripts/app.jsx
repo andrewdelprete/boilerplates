@@ -1,6 +1,9 @@
-import React from 'react';
-import { MyComponent } from './components';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-React.render(<MyComponent title="My Component" />, document.getElementById('app'));
+import { MyComponent } from './components'
 
-
+ReactDOM.render(
+    <MyComponent title="My Component" />,
+    document.getElementById('app')
+)
